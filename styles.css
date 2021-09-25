@@ -71,21 +71,21 @@ body {
 }
 
 
-.row1-column2-box,
-.row2-column2-box {
+.one,
+.four {
   border-bottom: 5px solid #237058;
   border-left: 5px solid #237058;
   border-right: 5px solid #237058;
 }
 
-.row1-column1-box, 
-.row1-column3-box, 
-.row2-column1-box,
-.row2-column3-box {
+.zero, 
+.two, 
+.three,
+.five {
   border-bottom: 5px solid #237058;
 }
 
-.row3-column2-box {
+.seven {
   border-left: 5px solid #237058;
   border-right: 5px solid #237058;
 }
