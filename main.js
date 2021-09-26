@@ -30,3 +30,20 @@ function handleSquareClicks(event) {
   game.switchActivePlayer();
   //displayNewActivePlayer();
 };
+
+  function displayTokens() {
+    var squares = document.querySelectorAll('.align-player-icon');
+    var alt;
+    for (var i = 0; i < squares.length; i++) {
+      if (game.gameBoard[i] !== null) {
+        if (game.gameBoard[i] === "./assets/baby-yoda.jpg") {
+          alt = "baby yoda picture";
+        } else {
+          alt = "mando picture";
+        }
+        squares[i].innerHTML = `
+          <img src="${game.gameBoard[i]}" alt="${alt}" class="player-image">
+        `;
+      }
+    }
+  }
