@@ -6,6 +6,7 @@ class Game {
   }
 
   startNewGame() {
+    console.log('startNewGame');
     //Once we have saveWinsToStorage, create a conditional that allows us to
     //retrieveWinsFromStorage and reinstantiate the players, else if saveWinsToStorage is null 
     //then we just want to create brand new player instances instead of using the old ones
@@ -21,15 +22,15 @@ class Game {
     this.players = [player1, player2];
   }
 
-  getOpenSquares() {
-    var openSquares = [];
+  getOpenSquareIndices() {
+    var openSquareIndices = [];
 
     for (var i = 0; i < this.gameBoard.length; i++) {
       if (!this.gameBoard[i]) {
-        openSquares.push(i);
+        openSquareIndices.push(i);
       }
     }
-    return openSquares;
+    return openSquareIndices;
   }
 
   selectSquare(indexOfSquare) {
@@ -45,7 +46,7 @@ class Game {
     var winByRow = this.checkForRows(); 
     var winByDiagonal = this.checkForDiagonals();
 
-    return winByColumn || winByRow || winByDiagonal;
+    return Boolean(winByColumn || winByRow || winByDiagonal);
   }
 
   checkForColumns() {
@@ -63,7 +64,7 @@ class Game {
     var column2Win = one === four && four === seven && one;
     var column3Win = two === five && five === eight && two;
 
-    return column1Win || column2Win || column3Win;
+    return Boolean(column1Win || column2Win || column3Win);
   }
 
   checkForRows() {
@@ -81,7 +82,7 @@ class Game {
     var row2Win = three === four && four === five && three;
     var row3Win = six === seven && seven === eight && six;
 
-    return row1Win || row2Win || row3Win;
+    return Boolean(row1Win || row2Win || row3Win);
   }
 
   checkForDiagonals () {
@@ -94,7 +95,7 @@ class Game {
     var diagonal1Win = zero === four && four === eight && zero;
     var diagonal2Win = six === four && four === two && six;
 
-    return diagonal1Win || diagonal2Win;
+    return Boolean(diagonal1Win || diagonal2Win);
   }
 
   incrementPlayerWins() {
