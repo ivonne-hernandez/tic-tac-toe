@@ -6,16 +6,12 @@ class Game {
   }
 
   startNewGame() {
-    console.log('startNewGame');
-    //Once we have saveWinsToStorage, create a conditional that allows us to
-    //retrieveWinsFromStorage and reinstantiate the players, else if saveWinsToStorage is null 
-    //then we just want to create brand new player instances instead of using the old ones
     var id0 = `zero`;
     var id1 = `one`;
     var babyYodaToken = "./assets/baby-yoda.jpg";
     var mandoToken = "./assets/mando.jpg";
-    var wins0 = 0; //will be different if we have something saved in storage
-    var wins1 = 0; //will be different if we have something saved in storage
+    var wins0 = 0;
+    var wins1 = 0; 
     var player1 = new Player(id0, babyYodaToken, wins0);
     var player2 = new Player(id1, mandoToken, wins1);
     this.gameBoard = [null, null, null, null, null, null, null, null, null];
@@ -25,7 +21,6 @@ class Game {
       this.players[0].wins = retrievedWinsFromStorage[0].wins;
       this.players[1].wins = retrievedWinsFromStorage[1].wins;
     }
-
   }
 
   getOpenSquareIndices() {
