@@ -16,35 +16,48 @@ function loadGame() {
 function handleSquareClicks(event) {
   var selectedSquareId = Number(event.target.closest('.game-board-square').id);
   var openSquareIndices = game.getOpenSquareIndices();
-  
-  if (openSquareIndices.length !== 0) {
-    for (var i = 0; i < openSquareIndices.length; i++) {
-      if (selectedSquareId === openSquareIndices[i]) {
-        game.selectSquare(selectedSquareId);
-        displayTokens();
-        if (game.checkForWin()) {
-          displayWinner();
-          gameBoard.classList.add('disable-click');
-          game.incrementPlayerWins();
-          game.players[game.activePlayerIndex].saveWinsToStorage(game.players);
-          displayUpdatedPlayerWins();
-          timeOut();
-          return;
-        } else if (!game.getOpenSquareIndices().length) {
-          turnAndWinnerDisplay.innerHTML = `
-            <p>
-              It's a draw
-            </p>
-          `;
-          gameBoard.classList.add('disable-click');
-          timeOut();
-          return;
-        }
-        game.switchActivePlayer();
-        displayNewActivePlayer();
-      }
+  for (var i = 0; i < openSquareIndices.length; i++) {
+    if (selectedSquareId === openSquareIndices[i]) {
+      selectOpenSquare(selectedSquareId);
     }
-  } 
+  }
+}
+
+function selectOpenSquare(selectedSquareId) {
+  game.selectSquare(selectedSquareId);
+  displayTokens();
+  if (game.checkForWin()) {
+    handleWinCondition();
+    return;
+  } else if (!game.getOpenSquareIndices().length) {
+    handleDrawCondition();
+    return;
+  }
+  continueGame();
+}
+
+function handleWinCondition() {
+  displayWinner();
+  gameBoard.classList.add('disable-click');
+  game.incrementPlayerWins();
+  game.players[game.activePlayerIndex].saveWinsToStorage(game.players);
+  displayUpdatedPlayerWins();
+  timeOut();
+}
+
+function handleDrawCondition() {
+  turnAndWinnerDisplay.innerHTML = `
+    <p>
+      It's a draw
+    </p>
+  `;
+  gameBoard.classList.add('disable-click');
+  timeOut();
+}
+
+function continueGame() {
+  game.switchActivePlayer();
+  displayNewActivePlayer();
 }
 
 function displayTokens() {
