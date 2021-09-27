@@ -29,6 +29,9 @@ body {
   grid-template-columns: repeat(3, 1fr);
   padding: 20px;
 }
+.disable-click {
+  pointer-events: none;
+}
 
 body {
   margin: 0px;
@@ -90,9 +93,10 @@ body {
   border-right: 5px solid #237058;
 }
 
-.align-player-icon {
+.game-board-square {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 25vh;
 }
+
