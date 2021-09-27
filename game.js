@@ -20,6 +20,12 @@ class Game {
     var player2 = new Player(id1, mandoToken, wins1);
     this.gameBoard = [null, null, null, null, null, null, null, null, null];
     this.players = [player1, player2];
+    if (this.players[0].retrieveWinsFromStorage()) {
+      var retrievedWinsFromStorage = this.players[0].retrieveWinsFromStorage();
+      this.players[0].wins = retrievedWinsFromStorage[0].wins;
+      this.players[1].wins = retrievedWinsFromStorage[1].wins;
+    }
+
   }
 
   getOpenSquareIndices() {
@@ -101,6 +107,6 @@ class Game {
   incrementPlayerWins() {
     var winnerOfGame = this.players[this.activePlayerIndex];
     winnerOfGame.wins += 1;
-    //saveWinsToStorage so that they'll show up when you start a new game
+    winnerOfGame.saveWinsToStorage();
   }
 }
