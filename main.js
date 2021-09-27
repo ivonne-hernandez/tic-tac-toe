@@ -10,7 +10,7 @@ window.addEventListener('load', loadGame);
 function loadGame() {
   game = new Game();
   game.startNewGame();
-
+  displayUpdatedPlayerWins();
 }
 
 function handleSquareClicks(event) {
@@ -124,24 +124,3 @@ function clearTheGameBoard() {
   game.switchActivePlayer();
   displayNewActivePlayer();
 }
-
-
-
-// if event square is in opensquares {
-//   selectSquare(eventSquare)
-//   if (checkForWin()) {
-//   //update DOM to say who won, update their total number of wins and display it, reset the game/start it over
-//     updateDomToSayWhoWon();
-//     incrementPlayerWins();
-//     updateDomToDisplayPlayerWins();
-//     waitACoupleOfSeconds();
-//     startNewGame();
-//   } else if (!getOpenSquares()) {
-//     //update the DOM to say it's a draw, reset the game/start it over
-//     updateDomToSayThereWasADraw();
-//     waitACoupleOfSeconds();
-//     startNewGame();
-//   } 
-//   switchActivePlayer();
-//   updateDomToSayWhosTurnItIs();
-// }
