@@ -14,6 +14,9 @@ function loadGame() {
 }
 
 function handleSquareClicks(event) {
+  if (!event.target.closest('.game-board-square') || gameBoard.classList.contains('disable-click')) {
+    return;
+  }
   var selectedSquareId = Number(event.target.closest('.game-board-square').id);
   var openSquareIndices = game.getOpenSquareIndices();
   for (var i = 0; i < openSquareIndices.length; i++) {
