@@ -28,12 +28,11 @@ function selectOpenSquare(selectedSquareId) {
   displayTokens();
   if (game.checkForWin()) {
     handleWinCondition();
-    return;
   } else if (!game.getOpenSquareIndices().length) {
     handleDrawCondition();
-    return;
+  } else {
+    continueGame();
   }
-  continueGame();
 }
 
 function handleWinCondition() {
@@ -48,7 +47,7 @@ function handleWinCondition() {
 function handleDrawCondition() {
   turnAndWinnerDisplay.innerHTML = `
     <p>
-      It's a draw
+      It's a draw!
     </p>
   `;
   gameBoard.classList.add('disable-click');
@@ -63,15 +62,18 @@ function continueGame() {
 function displayTokens() {
   var squares = document.querySelectorAll('.game-board-square');
   var alt;
+  var tokenBorder;
   for (var i = 0; i < squares.length; i++) {
     if (game.gameBoard[i] === "./assets/baby-yoda.jpg") {
       alt = "baby yoda picture";
+      tokenBorder = "baby-yoda";
     } else {
       alt = "mando picture";
+      tokenBorder = "mando";
     }
     if (game.gameBoard[i] !== null) {
       squares[i].innerHTML = `
-        <img src="${game.gameBoard[i]}" alt="${alt}" class="player-image">
+        <img src="${game.gameBoard[i]}" alt="${alt}" class="player-image ${tokenBorder}">
       `;
     } else {
       squares[i].innerHTML = ``;
@@ -81,36 +83,42 @@ function displayTokens() {
 
 function displayWinner() {
   var alt;
+  var tokenBorder;
   if (game.players[game.activePlayerIndex].token === "./assets/baby-yoda.jpg") {
     alt = "baby yoda picture";
+    tokenBorder = "baby-yoda";
   } else {
     alt = "mando picture";
+    tokenBorder = "mando";
   }
   
   turnAndWinnerDisplay.innerHTML = `
-    <img src="${game.players[game.activePlayerIndex].token}" alt="${alt}" class="winner-display player-image">
-    <p> won! </p>
+    <img src="${game.players[game.activePlayerIndex].token}" alt="${alt}" class="winner-display player-image ${tokenBorder}">
+    <p class="turn-text"> won! </p>
   `;
 }
 
 function displayNewActivePlayer() {
   var alt;
+  var tokenBorder;
   if (game.players[game.activePlayerIndex].token === "./assets/baby-yoda.jpg") {
     alt = "baby yoda picture";
+    tokenBorder = "baby-yoda";
   } else {
     alt = "mando picture";
+    tokenBorder = "mando";
   }
 
   turnAndWinnerDisplay.innerHTML = `
-    <p>It's </p>
-    <img src="${game.players[game.activePlayerIndex].token}" alt="${alt}" class="winner-display player-image">
-    <p>'s turn</p>
+    <p class="its-text">It's </p>
+    <img src="${game.players[game.activePlayerIndex].token}" alt="${alt}" class="winner-display player-image ${tokenBorder}">
+    <p class="turn-text">'s turn</p>
   `;
 }
 
 function displayUpdatedPlayerWins() {
-  babyYodaNumberOfWinsDisplay.innerText = `Number of Wins: ${game.players[0].wins}`;
-  mandoNumberOfWinsDisplay.innerText = `Number of Wins: ${game.players[1].wins}`;
+  babyYodaNumberOfWinsDisplay.innerText = `${game.players[0].wins} wins`;
+  mandoNumberOfWinsDisplay.innerText = `${game.players[1].wins} wins`;
 }
 
 function timeOut() {
