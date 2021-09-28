@@ -32,7 +32,6 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   height: 75%;
-  padding: 20px;
   width: 100%;
 }
 .disable-click {
