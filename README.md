@@ -14,7 +14,7 @@ Tic-Tac-Mando is an application that allows users to play a Mandalorian-themed g
 
 ## Preview:
 
-![Tic-Tac-Mando](./assets/tic-tac-mando.gif)
+![Tic-Tac-Mando](./assets/tic-tac-mando-hd.gif)
 
 ## Primary Technologies Used:
 
