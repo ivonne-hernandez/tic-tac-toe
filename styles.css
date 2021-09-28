@@ -5,41 +5,47 @@
 
 html,
 body {
-  width: 100%;
-  height: 100%;
   font-size: 20px;
+  height: 100%;
+  width: 100%;
 }
 
 .player-1,
 .player-2 {
-  width: 35%;
-  background: linear-gradient(lightblue, aquamarine, lightpink);
+  background: linear-gradient(lightblue, #ec7fff, #003f80ba);
+  font-size: xx-large;
   text-align: center;
+  width: 35%;
+}
+
+.player-1-number-of-wins,
+.player-2-number-of-wins {
+  margin-top: 3%;
 }
 .game-board-container {
+  background: linear-gradient(lightblue, #ec7fff, #003f80ba);
   width: 100%;
-  background: linear-gradient(lightblue, aquamarine, lightpink);
 }
 
 .game-board {
-  width: 100%;
-  height: 75%;
   color: white;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  height: 75%;
   padding: 20px;
+  width: 100%;
 }
 .disable-click {
   pointer-events: none;
 }
 
 body {
-  margin: 0px;
   box-sizing: border-box;
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin: 0px;
+  width: 100%;
 }
 
 
@@ -53,18 +59,20 @@ body {
 }
 
 .player-image {
-  width: 128px;
   border-radius: 12px;
+  box-shadow: 6px 10px 21px #77779f;
+  width: 128px;
 }
 
 .turn-and-winner-display {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   font-size: xxx-large;
 }
 
 .winner-display {
+  margin: 0%;
   margin-left: 12px;
 }
 
@@ -73,24 +81,23 @@ body {
   box-shadow: 0px 2px 6px #777777;
 }
 
-
 .one,
 .four {
-  border-bottom: 5px solid #237058;
-  border-left: 5px solid #237058;
-  border-right: 5px solid #237058;
+  border-bottom: 5px solid #0000007a;
+  border-left: 5px solid #0000007a;
+  border-right: 5px solid #0000007a;
 }
 
 .zero, 
 .two, 
 .three,
 .five {
-  border-bottom: 5px solid #237058;
+  border-bottom: 5px solid #0000007a;
 }
 
 .seven {
-  border-left: 5px solid #237058;
-  border-right: 5px solid #237058;
+  border-left: 5px solid #0000007a;
+  border-right: 5px solid #0000007a;
 }
 
 .game-board-square {
@@ -100,3 +107,18 @@ body {
   height: 25vh;
 }
 
+.mando {
+  border: 5px solid #a842a9;
+}
+
+.baby-yoda {
+  border: 5px solid mediumaquamarine;
+}
+
+.its-text {
+  padding-right: 8px;
+}
+
+.turn-text {
+  padding-left: 5px;
+}
