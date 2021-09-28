@@ -13,7 +13,7 @@ body {
 .player-1,
 .player-2 {
   background: linear-gradient(lightblue, #ec7fff, #003f80ba);
-  font-size: xx-large;
+  font-size: 32px;
   text-align: center;
   width: 35%;
 }
@@ -34,8 +34,9 @@ body {
   height: 75%;
   width: 100%;
 }
-.disable-click {
-  pointer-events: none;
+
+.disable-click:hover {
+  cursor: not-allowed;
 }
 
 body {
@@ -64,10 +65,10 @@ body {
 }
 
 .turn-and-winner-display {
-  display: flex;
   align-items: center;
+  display: flex;
+  font-size: 48px;
   justify-content: center;
-  font-size: xxx-large;
 }
 
 .winner-display {
@@ -100,10 +101,10 @@ body {
 }
 
 .game-board-square {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   height: 25vh;
+  justify-content: center;
 }
 
 .mando {
@@ -112,10 +113,6 @@ body {
 
 .baby-yoda {
   border: 5px solid mediumaquamarine;
-}
-
-.its-text {
-  padding-right: 8px;
 }
 
 .turn-text {
